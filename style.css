@@ -4,22 +4,30 @@
     padding: 0;
     user-select: none;
 }
+
+html {
+    overflow: hidden;
+    height: 100%;
+}
   
 body {
+    height: 100%;
+    overflow: auto;
     font-family: "Helvetica Neue", sans-serif;
     width: 400px;
-    height: 900px;
+    /* height: 900px; */
     background: black;
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: 900px;
 }
   
 .calculator {
     background: black;
     border-radius: 50px;
     color: white;
-    height: 100%;
+    height: 700px;
     padding-left: 1rem;
     padding-right: 1rem;
     margin-top: 10rem;
@@ -62,7 +70,7 @@ body {
   
 .button.function {
     color: white;
-    background: rgb(253,148,43);
+    background: rgb(253, 141, 28);
 }
   
 .button.operator {
@@ -99,10 +107,12 @@ body {
     .calculator {
         margin-top: 0rem;
         max-width: 1000px;
+        height: 350px;
     }
 
     .value {
         font-size: 4rem;
+        margin-bottom: 0;
     }
 
     .landscape-buttons-container {
