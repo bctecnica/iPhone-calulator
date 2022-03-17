@@ -1,11 +1,11 @@
 // DOM ELEMENT SELECTORS
-// calc functions
+// calc functions.
 const display = document.querySelector('.display');
 const ac = document.querySelector('.ac');
 const pm = document.querySelector('.p-m');
 const percent  = document.querySelector('.percent');
 
-// calc numbers
+// calc numbers.
 const decimal = document.querySelector('.decimal');
 const number0 = document.querySelector('.number-0');
 const number1 = document.querySelector('.number-1');
@@ -22,14 +22,14 @@ const numpadArray = [
   number5, number6, number7, number8, number9
 ];
 
-// calc operations
+// calc operations.
 const addition = document.querySelector('.addition');
 const subtraction = document.querySelector('.subtraction');
 const multiplication = document.querySelector('.multiplication');
 const division = document.querySelector('.division');
 const equal = document.querySelector('.equal');
 
-// calc landscape functions
+// calc landscape functions.
 const ozToL = document.querySelector('.kw-to-bhp');
 const pi = document.querySelector('.pi');
 const stoneToKg = document.querySelector('.stone-to-kg');
@@ -42,14 +42,19 @@ const farToCel = document.querySelector('.far-to-cel');
 const random = document.querySelector('.random');
 
 
+// VARIABLES
+let valueStrInMemory = null;
+let operatorInMemory = null;
+
+
 // FUNCTIONS
-// Display GETTER
-const getDisplayValueAsNum = () => {
+// Display GETTER.
+const getDisplayValue = () => {
     return parseFloat(display.textContent);
 };
 
-// Display SETTER
-const setDisplayValueAsString = (valueStr) => {
+// Display SETTER.
+const setDisplayValue = (valueStr) => {
     display.textContent = valueStr;
 };
 
@@ -58,30 +63,61 @@ const setDisplayValueAsString = (valueStr) => {
 const handleNumberClick = (numStr) => {
     const currentDisplayStr = display.textContent;
     if (currentDisplayStr === '0') {
-      setDisplayValueAsString(numStr);
+      setDisplayValue(numStr);
     } else {
-      setDisplayValueAsString(currentDisplayStr + numStr);
+      setDisplayValue(currentDisplayStr + numStr);
     }
 };
 
 
 // EVENT LISTENERS
-// Adds Event Listeners to num pad and decimal buttons
+//-- numpad--
+// Adds Event Listeners to num pad and decimal buttons.
 for (let i=0; i < numpadArray.length; i++) {
     const numBTN = numpadArray[i];
-    // passes clicked num as string to handleNumberClick
+    // passes clicked num as string to handleNumberClick.
     numBTN.addEventListener('click', () => {
       handleNumberClick(i.toString());
     });
 }
 
-// adds a . to end of current display value unless one is already present
+// adds a . to end of current display value unless one is already present in the display.
 decimal.addEventListener('click', () => {
     currentDisplayStr = display.textContent;
         if (!currentDisplayStr.includes('.')) {
-            setDisplayValueAsString(currentDisplayStr + '.');
+            setDisplayValue(currentDisplayStr + '.');
         }
 });
 
-// const getValueAsStr = () => valueEl.textContent.split(',').join('');
+// --functions--
+// clears display
+ac.addEventListener('click', () => {
+    setDisplayValue('0');
+    valueStrInMemory = null;
+    operatorInMemory = null;
+});
+
+// makes display a minus number if positive or vice versa - BUG 0 stays if clicked before typing number
+pm.addEventListener('click', () => {
+    const currentDisplayValueAsNum = getDisplayValue();
+    const currentDisplayValueAsString = display.textContent;
+
+    if (currentDisplayValueAsString === '-0') {
+        setDisplayValue('0');
+        return;
+    }
+    if (currentDisplayValueAsNum >= 0) {
+        setDisplayValue('-' + currentDisplayValueAsString);
+    } else {
+        setDisplayValue(currentDisplayValueAsString.substring(1));
+    }
+});
+
+// returns 1% of current display value
+percent.addEventListener('click', () => {
+    setDisplayValue(getDisplayValue() / 100);
+    valueStrInMemory = null;
+    operatorInMemory = null;
+});
   
+// --operators--
