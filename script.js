@@ -27,7 +27,7 @@ const addition = document.querySelector('.addition');
 const subtraction = document.querySelector('.subtraction');
 const multiplication = document.querySelector('.multiplication');
 const division = document.querySelector('.division');
-const equal = document.querySelector('.equal');
+const equal = document.querySelector('.equals');
 
 // calc landscape functions.
 const ozToL = document.querySelector('.kw-to-bhp');
@@ -43,7 +43,7 @@ const random = document.querySelector('.random');
 
 
 // VARIABLES
-let valueStrInMemory = null;
+let valueInMemory = null;
 let operatorInMemory = null;
 
 
@@ -69,6 +69,38 @@ const handleNumberClick = (numStr) => {
     }
 };
 
+// used to string together multiple calculations by sorting previous answer to a variable.
+const handleOperatorClick = (operation) => {
+    const currentDisplayValue = display.textContent;
+    if (!valueInMemory) {
+      valueInMemory = currentDisplayValue;
+      operatorInMemory = operation;
+      setDisplayValue('0');
+      return;
+    }
+    valueInMemory = getResultOfOperation();
+    operatorInMemory = operation;
+    setDisplayValue('0');
+  };
+
+// gets the stored number in memory and calculates an answer from operator selected and 
+// currently displayed number.
+const getResultOfOperation = () => {
+    const currentDisplayValue = getDisplayValue();
+    const valueInMemoryNum = parseFloat(valueInMemory);
+    let newValue;
+    if (operatorInMemory === 'addition') {
+      newValue = valueInMemoryNum + currentDisplayValue;
+    } else if (operatorInMemory === 'subtraction') {
+      newValue = valueInMemoryNum - currentDisplayValue;
+    } else if (operatorInMemory === 'multiplication') {
+      newValue = valueInMemoryNum * currentDisplayValue;
+    } else if (operatorInMemory === 'division') {
+      newValue = valueInMemoryNum / currentDisplayValue;
+    }
+    return newValue.toString();
+  };
+
 
 // EVENT LISTENERS
 //-- numpad--
@@ -89,11 +121,11 @@ decimal.addEventListener('click', () => {
         }
 });
 
-// --functions--
+// --calc functions--
 // clears display
 ac.addEventListener('click', () => {
     setDisplayValue('0');
-    valueStrInMemory = null;
+    valueInMemory = null;
     operatorInMemory = null;
 });
 
@@ -116,8 +148,29 @@ pm.addEventListener('click', () => {
 // returns 1% of current display value
 percent.addEventListener('click', () => {
     setDisplayValue(getDisplayValue() / 100);
-    valueStrInMemory = null;
+    valueInMemory = null;
     operatorInMemory = null;
 });
   
 // --operators--
+addition.addEventListener('click', () => {
+    handleOperatorClick('addition');
+});
+subtraction.addEventListener('click', () => {
+    handleOperatorClick('subtraction');
+});
+multiplication.addEventListener('click', () => {
+    handleOperatorClick('multiplication');
+});
+division.addEventListener('click', () => {
+    handleOperatorClick('division');
+});
+
+// returns operation calculation to the display
+equal.addEventListener('click', () => {
+if (valueInMemory) {
+    setDisplayValue(getResultOfOperation());
+    valueInMemory = null;
+    operatorInMemory = null;
+    }
+});
