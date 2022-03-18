@@ -81,7 +81,7 @@ const handleOperatorClick = (operation) => {
     valueInMemory = getResultOfOperation();
     operatorInMemory = operation;
     setDisplayValue('0');
-  };
+};
 
 // gets the stored number in memory and calculates an answer from operator selected and 
 // currently displayed number.
@@ -99,7 +99,7 @@ const getResultOfOperation = () => {
       newValue = valueInMemoryNum / currentDisplayValue;
     }
     return newValue.toString();
-  };
+};
 
 
 // EVENT LISTENERS
