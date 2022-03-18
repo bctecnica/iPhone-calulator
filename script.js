@@ -30,11 +30,11 @@ const division = document.querySelector('.division');
 const equal = document.querySelector('.equals');
 
 // calc landscape functions.
-const ozToL = document.querySelector('.kw-to-bhp');
+const kwToBhp = document.querySelector('.kw-to-bhp');
 const pi = document.querySelector('.pi');
 const stoneToKg = document.querySelector('.stone-to-kg');
 const Square = document.querySelector('.square');
-const inchToCm = document.querySelector('.inch-to-cm');
+const inchToCm = document.querySelector('.inches-to-cm');
 const squareRoot = document.querySelector('.square-root');
 const kphToMph = document.querySelector('.kph-to-mph');
 const cubed = document.querySelector('.cubed');
@@ -174,3 +174,27 @@ if (valueInMemory) {
     operatorInMemory = null;
     }
 });
+
+// --landscape operators--
+// conversions
+stoneToKg.addEventListener('click', () => {
+    setDisplayValue(getDisplayValue() * 6.350);
+});
+
+farToCel.addEventListener('click', () => {
+    setDisplayValue((getDisplayValue() -32) * 5 / 9);
+});
+
+inchToCm.addEventListener('click', () => {
+    setDisplayValue(getDisplayValue() * 2.54);
+});
+
+kphToMph.addEventListener('click', () => {
+    setDisplayValue(getDisplayValue() * 0.621);
+});
+
+kwToBhp.addEventListener('click', () => {
+    setDisplayValue(getDisplayValue() * 1.341);
+});
+
+
