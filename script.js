@@ -197,4 +197,27 @@ kwToBhp.addEventListener('click', () => {
     setDisplayValue(getDisplayValue() * 1.341);
 });
 
+// math
+squareRoot.addEventListener('click', () => {
+    setDisplayValue(Math.sqrt(getDisplayValue()));
+});
+
+Square.addEventListener('click', () => {
+    setDisplayValue(Math.pow(getDisplayValue(), 2));
+});
+
+cubed.addEventListener('click', () => {
+    setDisplayValue(Math.pow(getDisplayValue(), 3));
+});
+
+pi.addEventListener('click', () => {
+    setDisplayValue(Math.PI);
+});
+
+random.addEventListener('click', () => {
+    setDisplayValue(Math.random());
+});
+
+
+
 
