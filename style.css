@@ -95,6 +95,22 @@ button, input[type="submit"], input[type="reset"] {
     filter: brightness(120%);
 }
 
+.operator {
+    transition: all .5s;
+}
+
+@keyframes fadeIt {
+    0%   { background-color: #333; color: #fff; }
+    50%  { background-color: #fff; color: #333;}
+    100% { background-color: #333; color: #fff;}
+}
+
+  .operator.equals:focus{    
+    animation: fadeIt .8s ease-in-out; 
+    background-color: #333; 
+    color: #fff;
+}
+
 .operator:focus {
     background-color: white;
     color: black;

@@ -103,6 +103,15 @@ const getResultOfOperation = () => {
 
 
 // EVENT LISTENERS
+
+// remove last number if display is clicked
+display.addEventListener('click', () => {
+    setDisplayValue(display.textContent.slice(0, -1));
+    if (display.textContent === ''){
+        setDisplayValue('0')
+    }
+});
+
 //-- numpad--
 // Adds Event Listeners to num pad and decimal buttons.
 for (let i=0; i < numpadArray.length; i++) {
@@ -218,13 +227,6 @@ random.addEventListener('click', () => {
     setDisplayValue(Math.random());
 });
 
-// remove last number is display is clicked
-display.addEventListener('click', () => {
-    setDisplayValue(display.textContent.slice(0, -1));
-    if (display.textContent === ''){
-        setDisplayValue('0')
-    }
-});
 
 
 
