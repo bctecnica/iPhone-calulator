@@ -218,6 +218,14 @@ random.addEventListener('click', () => {
     setDisplayValue(Math.random());
 });
 
+// remove last number is display is clicked
+display.addEventListener('click', () => {
+    setDisplayValue(display.textContent.slice(0, -1));
+    if (display.textContent === ''){
+        setDisplayValue('0')
+    }
+});
+
 
 
 
