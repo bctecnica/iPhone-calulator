@@ -138,17 +138,20 @@ ac.addEventListener('click', () => {
     operatorInMemory = null;
 });
 
-// makes display a minus number if positive or vice versa - BUG 0 stays if clicked before typing number
+// makes display a minus number if positive or vice versa
 pm.addEventListener('click', () => {
     const currentDisplayValueAsNum = getDisplayValue();
     const currentDisplayValueAsString = display.textContent;
 
-    if (currentDisplayValueAsString === '-0') {
+    if (currentDisplayValueAsString === '-') {
         setDisplayValue('0');
-        return;
+        return;   
     }
     if (currentDisplayValueAsNum >= 0) {
         setDisplayValue('-' + currentDisplayValueAsString);
+        if (display.textContent === '-0') {
+            setDisplayValue('-');
+        }
     } else {
         setDisplayValue(currentDisplayValueAsString.substring(1));
     }
