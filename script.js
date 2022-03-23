@@ -56,6 +56,17 @@ const getDisplayValue = () => {
 // Display SETTER.
 const setDisplayValue = (valueStr) => {
     display.textContent = valueStr;
+
+    // max length xr 16 char in display
+    if(display.textContent.length < 8){
+        display.style.fontSize = '80px';
+    }
+    if(display.textContent.length >= 8){
+        display.style.fontSize = '50px';
+    }
+    if(display.textContent.length >= 13){
+        display.style.fontSize = '38px';
+    }
 };
 
 // gets current displayed num if one exists then adds clicked num converted 
@@ -229,6 +240,8 @@ pi.addEventListener('click', () => {
 random.addEventListener('click', () => {
     setDisplayValue(Math.random());
 });
+
+
 
 
 
