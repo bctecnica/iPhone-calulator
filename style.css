@@ -106,7 +106,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
   .operator.equals:focus{    
-    animation: fadeIt .8s ease-in-out; 
+    animation: fadeIt .7s ease-in-out; 
     background-color: #333; 
     color: #fff;
 }
