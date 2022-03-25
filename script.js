@@ -55,9 +55,7 @@ const getDisplayValue = () => {
 
 // Display SETTER.
 const setDisplayValue = (valueStr) => {
-    display.textContent = valueStr;
-
-    // max length xr 16 char in display
+    display.textContent = valueStr.toString().substring(0, 16);
     if(display.textContent.length < 8){
         display.style.fontSize = '80px';
     }
