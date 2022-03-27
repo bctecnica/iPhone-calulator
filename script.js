@@ -57,13 +57,13 @@ const getDisplayValue = () => {
 const setDisplayValue = (valueStr) => {
     display.textContent = valueStr.toString().substring(0, 16);
     if(display.textContent.length < 8){
-        display.style.fontSize = '80px';
+        display.style.fontSize = '5rem';
     }
     if(display.textContent.length >= 8){
-        display.style.fontSize = '50px';
+        display.style.fontSize = '3rem';
     }
     if(display.textContent.length >= 13){
-        display.style.fontSize = '38px';
+        display.style.fontSize = '2.4rem';
     }
 };
 
