@@ -67,8 +67,7 @@ const setDisplayValue = (valueStr) => {
     }
     if(screen.width >= 600){
         display.style.fontSize = '2.8rem';
-    }
-    
+    }  
 };
 
 // listens for display size changes and adjusts fonts accordingly.

@@ -39,7 +39,6 @@ body {
     margin-bottom: 10px;
     margin-right: 20px;
     text-align: right;
-
 }
 
 .landscape-buttons-container {
@@ -118,6 +117,14 @@ button, input[type="submit"], input[type="reset"] {
     color: black;
 }
 
+.bctecnica {
+    width: 100%;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+}
+
 @media only screen and (min-width: 600px) {
 
       body {
@@ -177,6 +184,12 @@ button, input[type="submit"], input[type="reset"] {
         grid-column: 4;
         justify-content: flex-center;
         height: 6rem;
+    }
+
+    .bctecnica {
+        font-size: 1rem;
+        margin-top: .5rem;
+        padding-left: 3rem;
     }
 
 }
