@@ -32,13 +32,15 @@ body {
     position: relative;
 }
   
-.display {
+.top {
+    display: flex;
     height: 90px;
     font-size: 5rem;
     font-weight: 300;
     margin-bottom: 10px;
     margin-right: 20px;
-    text-align: right;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .landscape-buttons-container {
@@ -144,12 +146,12 @@ button, input[type="submit"], input[type="reset"] {
         height: 350px;
     }
 
-    .display {
+    .top {
         height: 55px;
         font-size: 2.8rem;
         margin-bottom: 0;
         margin-top: 1rem;
-        margin-right: .6rem;
+        margin-right: 10px;
     }
 
     .landscape-buttons-container {
