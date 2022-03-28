@@ -63,9 +63,9 @@ const setDisplayValue = (valueStr) => {
         display.style.fontSize = '3rem';
     }
     if(display.textContent.length >= 13){
-        display.style.fontSize = '2.4rem';
+        display.style.fontSize = '2.3rem';
     }
-    if(screen.width >= 600){
+    if(window.innerWidth >= 600){
         display.style.fontSize = '2.8rem';
     }  
 };
