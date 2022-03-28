@@ -65,7 +65,32 @@ const setDisplayValue = (valueStr) => {
     if(display.textContent.length >= 13){
         display.style.fontSize = '2.4rem';
     }
+    if(screen.width >= 600){
+        display.style.fontSize = '2.8rem';
+    }
+    
 };
+
+// listens for display size changes and adjusts fonts accordingly.
+const resize_ob = new ResizeObserver(function(entries) {
+	let rect = entries[0].contentRect;
+	let width = rect.width;
+    if(width <= 600 && display.textContent.length < 8){
+        display.style.fontSize = '5rem';
+    }
+    if(width <= 600 && display.textContent.length >= 8){
+        display.style.fontSize = '3rem';
+    }
+    if(width <= 600 && display.textContent.length >= 13){
+        display.style.fontSize = '2.4rem';
+    }
+    if(width >= 600){
+        display.style.fontSize = '2.8rem';
+    }
+});
+
+// start observing for resize
+resize_ob.observe(document.querySelector("html"));
 
 // gets current displayed num if one exists then adds clicked num converted 
 // to a str and adds to the end of the current displayed str.
