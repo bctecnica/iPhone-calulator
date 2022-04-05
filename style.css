@@ -120,11 +120,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .bctecnica {
-    width: 100%;
-    font-size: 1.2rem;
-    color: white;
-    text-align: center;
-    margin-top: 1rem;
+    display: none;
 }
 
 @media only screen and (min-width: 600px) {
@@ -189,7 +185,12 @@ button, input[type="submit"], input[type="reset"] {
     }
 
     .bctecnica {
-        display: none;
+        display: block;
+        width: 100%;
+        font-size: 1.2rem;
+        color: white;
+        text-align: center;
+        margin-top: 1rem;
     }
 
 }
